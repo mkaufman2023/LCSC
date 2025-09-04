@@ -37,7 +37,8 @@ results = lcsc.get_search_results("L7805CV", sort_by="stock")
 view(results)
 ```
 """
-__version__ = "1.1.5"
+from .types import ProductDetails, SearchResult
+__version__ = "1.1.6"
 
 
 
@@ -143,7 +144,7 @@ def view(data: list | dict):
 
 
 
-def get_product_details(lcsc_part_number: str):
+def get_product_details(lcsc_part_number: str) -> "ProductDetails":
     """
     Get details for a product with a specific LCSC part #.
 
@@ -164,7 +165,7 @@ def get_product_details(lcsc_part_number: str):
 
 
 
-def get_search_results(keyword: str, min_stock: int = 500, sort_by: str = "stock"):
+def get_search_results(keyword: str, min_stock: int = 500, sort_by: str = "stock") -> list["SearchResult"]:
     """
     Get search results for a specific search query/keyword.
 

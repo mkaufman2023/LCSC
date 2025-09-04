@@ -2,8 +2,14 @@
 Reverse-engineered API for [LCSC Electronics](https://www.lcsc.com/).
 
 ## Installation/Updating
-- `pip install "git+https://github.com/mkaufman2023/LCSC.git@main"`
-- `pip install --upgrade "git+https://github.com/mkaufman2023/LCSC.git@main"`
+- *Installation*
+    ```bash
+    pip install "git+https://github.com/mkaufman2023/LCSC.git@main"
+    ```
+- *Updating*
+    ```bash
+    pip install --upgrade "git+https://github.com/mkaufman2023/LCSC.git@main"
+    ```
 
 ## Basic Usage
 - *Importing the library*

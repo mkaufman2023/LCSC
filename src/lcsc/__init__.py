@@ -8,8 +8,8 @@ Allows:
     `lcsc.some_method()`         # forwards to a default LCSC() instance
     `cls = lcsc.LCSC`            # access the class if you want to instantiate yourself
 """
-import threading
 from __future__ import annotations
+import threading
 from typing import TYPE_CHECKING, Any
 
 __all__ = ["LCSC", "configure", "get_client", "__version__"]

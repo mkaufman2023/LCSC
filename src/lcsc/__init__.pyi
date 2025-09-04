@@ -3,8 +3,7 @@ src/lcsc/__init__.pyi
 
 Stub file for the `lcsc` package.
 """
-from .objects import ProductDetails, SearchResult
-
+from .types import ProductDetails, SearchResult
 __all__ = ["view", "get_product_details", "get_search_results", "__version__", "ProductDetails", "SearchResult"]
 
 def view(data: list | dict) -> None: ...

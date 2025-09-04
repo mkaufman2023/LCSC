@@ -102,4 +102,4 @@ class LCSC:
         return results
 
 
-
+lcsc = LCSC()

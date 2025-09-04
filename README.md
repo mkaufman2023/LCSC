@@ -25,13 +25,13 @@ Reverse-engineered API for [LCSC Electronics](https://www.lcsc.com/).
     results = lcsc.get_search_results("L7805CV", min_stock=1000)
     view(results)
     ```
-- *Searching for products with optional sorting type*
+- *Searching for products with optional sorting type (by base-price)*
     ```python
-    # Sorting by base-price (lowest -> highest)
     results = lcsc.get_search_results("L7805CV", sort_by="price")
     view(results)
-
-    # Sorting by quantity in stock (lowest -> highest)
+    ```
+- *Searching for products with optional sorting type (by quantity in stock)*
+    ```python
     results = lcsc.get_search_results("L7805CV", sort_by="stock")
     view(results)
     ```

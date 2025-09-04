@@ -38,7 +38,7 @@ view(results)
 ```
 """
 __all__ = ["view", "get_product_details", "get_search_results", "__version__"]
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 
 
 
@@ -71,7 +71,7 @@ def get_product_details(lcsc_part_number: str):
     >>> details.view()
     ```
     """
-    from ._impl.api import lcsc
+    from .api import lcsc
     return lcsc.get_product_details(lcsc_part_number)
 
 
@@ -96,6 +96,6 @@ def get_search_results(keyword: str, min_stock: int = 500, sort_by: str = "stock
     >>> view(results)
     ```
     """
-    from ._impl.api import lcsc
+    from .api import lcsc
     return lcsc.get_search_results(keyword, min_stock, sort_by)
 

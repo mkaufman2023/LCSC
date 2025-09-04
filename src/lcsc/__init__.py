@@ -38,7 +38,7 @@ view(results)
 ```
 """
 __all__ = ["view", "get_product_details", "get_search_results", "__version__"]
-__version__ = "0.0.6"
+__version__ = "0.0.7"
 
 
 
@@ -47,7 +47,7 @@ def view(data: list | dict):
     View a `list` or `dict` in a GUI window.
 
     ## Parameters
-    - `data` ( *list* | *dict* ) - The data to view.
+    - `data` ( *list* | *dict* ) - The data to view. It can be any JSON-serializable object.
     """
     from pyjsonviewer import view_data
     view_data(json_data=data)

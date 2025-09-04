@@ -3,11 +3,25 @@ src/lcsc/types.py
 
 Dataclass types for the `lcsc` package.
 """
-from pyjsonviewer import view_data as view
-from dataclasses import dataclass, field, asdict, astuple
+
+class _Imports:
+    def __init__(self):
+        from pyjsonviewer import view_data as view
+        from dataclasses import dataclass, field, asdict, astuple
+        self.view = view
+        self.dataclass = dataclass
+        self.field = field
+        self.asdict = asdict
+        self.astuple = astuple
+        
 
 
-@dataclass(frozen=True)
+
+# from pyjsonviewer import view_data as view
+# from dataclasses import dataclass, field, asdict, astuple
+
+
+@_Imports().dataclass(frozen=True)
 class CatalogDetails:
     """
     """
@@ -15,17 +29,17 @@ class CatalogDetails:
     name: str
 
     def as_dict(self):
-        return asdict(self)
+        return _Imports().asdict(self)
     
     def as_tuple(self):
-        return astuple(self)
+        return _Imports().astuple(self)
     
     def view(self):
-        view(json_data=self.as_dict())
+        _Imports().view(json_data=self.as_dict())
 
 
 
-@dataclass(frozen=True)
+@_Imports().dataclass(frozen=True)
 class BrandDetails:
     """
     """
@@ -33,17 +47,17 @@ class BrandDetails:
     name: str
 
     def as_dict(self):
-        return asdict(self)
+        return _Imports().asdict(self)
     
     def as_tuple(self):
-        return astuple(self)
+        return _Imports().astuple(self)
     
     def view(self):
-        view(json_data=self.as_dict())
+        _Imports().view(json_data=self.as_dict())
     
 
 
-@dataclass(frozen=True)
+@_Imports().dataclass(frozen=True)
 class PriceDetails:
     """
     """
@@ -53,17 +67,17 @@ class PriceDetails:
     discount_pct: float
 
     def as_dict(self):
-        return asdict(self)
+        return _Imports().asdict(self)
     
     def as_tuple(self):
-        return astuple(self)
+        return _Imports().astuple(self)
     
     def view(self):
-        view(json_data=self.as_dict())
+        _Imports().view(json_data=self.as_dict())
 
 
 
-@dataclass(frozen=True)
+@_Imports().dataclass(frozen=True)
 class Spec:
     """
     """
@@ -72,39 +86,39 @@ class Spec:
     value: str
 
     def as_dict(self):
-        return asdict(self)
+        return _Imports().asdict(self)
     
     def as_tuple(self):
-        return astuple(self)
+        return _Imports().astuple(self)
     
     def view(self):
-        view(json_data=self.as_dict())
+        _Imports().view(json_data=self.as_dict())
 
 
 
-@dataclass(frozen=True)
+@_Imports().dataclass(frozen=True)
 class ProductDetails:
     """
     """
-    __raw_data: dict = field(default_factory=dict)
+    __raw_data: dict = _Imports().field(default_factory=dict)
     
-    product_id: int = field(init=False)
-    product_code: str = field(init=False)
-    product_url: str = field(init=False)
-    product_model: str = field(init=False)
-    product_title: str = field(init=False)
-    parent_catalog: "CatalogDetails" = field(init=False)
-    catalog: "CatalogDetails" = field(init=False)
-    brand: "BrandDetails" = field(init=False)
-    split_quantity: int = field(init=False)
-    min_quantity: int = field(init=False)
-    is_hot: bool = field(init=False)
-    stock: int = field(init=False)
-    price: dict[int, "PriceDetails"] = field(init=False, default_factory=dict)
-    image_urls: list[str] = field(init=False, default_factory=list)
-    datasheet_url: str = field(init=False)
-    description: str = field(init=False)
-    specs: list["Spec"] = field(init=False, default_factory=list)
+    product_id: int = _Imports().field(init=False)
+    product_code: str = _Imports().field(init=False)
+    product_url: str = _Imports().field(init=False)
+    product_model: str = _Imports().field(init=False)
+    product_title: str = _Imports().field(init=False)
+    parent_catalog: "CatalogDetails" = _Imports().field(init=False)
+    catalog: "CatalogDetails" = _Imports().field(init=False)
+    brand: "BrandDetails" = _Imports().field(init=False)
+    split_quantity: int = _Imports().field(init=False)
+    min_quantity: int = _Imports().field(init=False)
+    is_hot: bool = _Imports().field(init=False)
+    stock: int = _Imports().field(init=False)
+    price: dict[int, "PriceDetails"] = _Imports().field(init=False, default_factory=dict)
+    image_urls: list[str] = _Imports().field(init=False, default_factory=list)
+    datasheet_url: str = _Imports().field(init=False)
+    description: str = _Imports().field(init=False)
+    specs: list["Spec"] = _Imports().field(init=False, default_factory=list)
 
     def __post_init__(self):
         super().__setattr__("product_id",     int(self.__raw_data["productId"]))
@@ -149,20 +163,20 @@ class ProductDetails:
         return hash(self.product_code)
     
     def as_dict(self):
-        d = asdict(self)
+        d = _Imports().asdict(self)
         k = [x for x in d.keys() if x.find('__raw_data') != -1]
         if len(k) > 0:
             d.pop(k[0])
         return d
     
     def as_tuple(self):
-        return astuple(self)
+        return _Imports().astuple(self)
     
     def view(self):
-        view(json_data=self.as_dict())
+        _Imports().view(json_data=self.as_dict())
 
     def view_raw(self):
-        view(json_data=self.__raw_data)
+        _Imports().view(json_data=self.__raw_data)
 
     def get_price_breaks(self) -> list[int]:
         return sorted(self.price.keys())
@@ -183,7 +197,7 @@ class ProductDetails:
 
 
 
-@dataclass(frozen=True)
+@_Imports().dataclass(frozen=True)
 class SearchResult:
     """
     """
@@ -193,32 +207,32 @@ class SearchResult:
     product_details: "ProductDetails"
 
     def as_dict(self):
-        d = asdict(self)
+        d = _Imports().asdict(self)
         k = [x for x in d["product_details"].keys() if x.find('__raw_data') != -1]
         if len(k) > 0:
             d["product_details"].pop(k[0])
         return d
 
     def as_tuple(self):
-        return astuple(self)
+        return _Imports().astuple(self)
     
     def view(self):
-        view(json_data=self.as_dict())
+        _Imports().view(json_data=self.as_dict())
 
 
 
-@dataclass(frozen=True)
+@_Imports().dataclass(frozen=True)
 class SearchResults:
     """
     """
-    results: list["SearchResult"] = field(default_factory=list)
+    results: list["SearchResult"] = _Imports().field(default_factory=list)
 
     def as_dict(self):
-        d = asdict(self)
-        return asdict(self)
+        d = _Imports().asdict(self)
+        return _Imports().asdict(self)
     
     def as_tuple(self):
-        return astuple(self)
+        return _Imports().astuple(self)
     
     def view(self):
-        view(json_data=[x.as_dict() for x in self.results])
+        _Imports().view(json_data=[x.as_dict() for x in self.results])

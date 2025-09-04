@@ -37,7 +37,7 @@ results = lcsc.get_search_results("L7805CV", sort_by="stock")
 view(results)
 ```
 """
-__version__ = "1.1.3"
+__version__ = "1.1.4"
 
 
 

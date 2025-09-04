@@ -4,7 +4,7 @@ src/lcsc/__init__.pyi
 Stub file for the `lcsc` package.
 """
 from .types import ProductDetails, SearchResult
-__all__ = ["view", "get_product_details", "get_search_results", "__version__", "ProductDetails", "SearchResult"]
+__all__ = ["view", "get_product_details", "get_search_results", "__version__"]
 
 def view(data: list | dict) -> None: ...
 def get_product_details(script_path: str, lcsc_part_number: str) -> "ProductDetails": ...

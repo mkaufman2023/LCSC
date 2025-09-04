@@ -38,7 +38,7 @@ view(results)
 ```
 """
 from .types import ProductDetails, SearchResult
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 
 

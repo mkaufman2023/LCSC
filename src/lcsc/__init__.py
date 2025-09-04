@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 src/lcsc/__init__.py
 
@@ -8,12 +9,11 @@ Allows:
     `lcsc.some_method()`         # forwards to a default LCSC() instance
     `cls = lcsc.LCSC`            # access the class if you want to instantiate yourself
 """
-from __future__ import annotations
 import threading
 from typing import TYPE_CHECKING, Any
 
 __all__ = ["LCSC", "configure", "get_client", "__version__"]
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 # Lazy-initialized default client and lock
 _default_client = None

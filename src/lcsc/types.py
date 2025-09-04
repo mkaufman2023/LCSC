@@ -3,11 +3,13 @@ src/lcsc/types.py
 
 Dataclass types for the `lcsc` package.
 """
+from dataclasses import (
+    field as _field,
+    asdict as _asdict,
+    astuple as _astuple,
+    dataclass as _dataclass
+)
 from pyjsonviewer import view_data as _view
-from dataclasses import dataclass as _dataclass
-from dataclasses import field as _field
-from dataclasses import asdict as _asdict
-from dataclasses import astuple as _astuple
 
 
 

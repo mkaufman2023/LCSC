@@ -37,7 +37,7 @@ results = lcsc.get_search_results("L7805CV", sort_by="stock")
 view(results)
 ```
 """
-__version__ = "1.0.4"
+__version__ = "1.1.0"
 from dataclasses import dataclass, field, asdict, astuple
 
 
@@ -139,7 +139,6 @@ class ProductDetails:
     datasheet_url: str = field(init=False)
     description: str = field(init=False)
     specs: list["Spec"] = field(init=False, default_factory=list)
-    # optimal_order_quantity: int = field(init=False, default=0)
 
     def __post_init__(self):
         super().__setattr__("product_id",     int(self.__raw_data["productId"]))
@@ -269,7 +268,6 @@ class LCSC:
             "accept": "application/json, text/plain, */*",
             "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
         }
-        self.__base_url = "https://wmsc.lcsc.com/ftps/wm/"
 
 
     def __request(self, url: str, params: dict, method: str = "GET", payload: dict | None = None):

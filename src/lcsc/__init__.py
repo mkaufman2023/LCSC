@@ -38,7 +38,7 @@ view(results)
 ```
 """
 __all__ = ["view", "get_product_details", "get_search_results", "__version__"]
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 
 
 

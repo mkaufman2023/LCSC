@@ -1,7 +1,7 @@
 """
 src/lcsc/__init__.pyi
 
-Stub file for the `lcsc` package.
+Stub for `__init__.py`.
 """
 from .types import ProductDetails, SearchResult
 __all__ = ["view", "get_product_details", "get_search_results", "__version__"]

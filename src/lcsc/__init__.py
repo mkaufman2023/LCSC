@@ -39,7 +39,7 @@ view(results)
 """
 import requests
 from .types import ProductDetails, SearchResult
-__version__ = "1.3.0"
+__version__ = "1.3.1"
 
 
 _HEADERS = {
